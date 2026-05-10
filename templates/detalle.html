@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{{ libro.title }}{% endblock %}
+
+{% block contenido %}
+<a href="{{ url_for('libros') }}" class="back-link">← Volver al catálogo</a>
+
+<div class="detalle">
+  <h1>{{ libro.title }}</h1>
+  <p class="autor">por {{ libro.author }}</p>
+
+  <table>
+    <tr><td>País</td><td>{{ libro.country }}</td></tr>
+    <tr><td>Idioma</td><td>{{ libro.language }}</td></tr>
+    <tr>
+      <td>Año</td>
+      <td>{% if libro.year < 0 %}{{ libro.year|abs }} a.C.{% else %}{{ libro.year }}{% endif %}</td>
+    </tr>
+    <tr><td>Páginas</td><td>{{ libro.pages }}</td></tr>
+    <tr><td>Género</td><td>{{ libro.genre }}</td></tr>
+    <tr><td>Rating</td><td>{{ libro.rating }} / 5</td></tr>
+    {% if libro.link %}
+    <tr><td>Wikipedia</td><td><a href="{{ libro.link.strip() }}" target="_blank">Ver artículo →</a></td></tr>
+    {% endif %}
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+<div class="inicio">
+  <a href="{{ url_for('libros') }}" class="logo-emoji" title="Ver catálogo">📚</a>
+  <h1>Biblioteca Universal</h1>
+  <p>Los 100 mejores libros de la historia de la literatura.</p>
+  <a href="{{ url_for('libros') }}" class="btn">Ver catálogo completo</a>
+</div>
+{% endblock %}
